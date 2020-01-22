@@ -17,16 +17,23 @@ with open(".secret", "r") as f:
 
 @app.route('/', methods=['POST'])
 def shortstop():
-    print("hi")
-    message = request.get_json()
+    message = request.get_json()['text']
     print(message)
 
     noise_complaint(message)
     sign_in(message)
+    detain(message)
 
     # TODO: bot logic
 
     return "ok", 200
+
+
+def detain(msg):
+    """Detain a user"""
+    msg = msg.split()
+    if msg[0].lower().startswith("!detain") and len(msg) < 4:
+        reply(' '.join(msg[1:]) + " has been detained")
 
 
 def reply(msg):
@@ -45,13 +52,13 @@ def sender_is_bot(message):
     return message['sender_type'] == "bot"
 
 
-def noise_complaint(s):
-    if s == s.upper():
+def noise_complaint(msg):
+    if msg == msg.upper():
         reply("Noise complaint registered with room 202")
 
 
-def sign_in(s):
-    if '!attendance' in s:
+def sign_in(msg):
+    if '!attendance' in msg:
         reply("https://docs.google.com/forms/u/0/d/e/1FAIpQLScYQDbMuOAH4EVpUlCAPxRhmPMJGXoYnR0Loo3fIrDzp6ZgTg/formResponse")
 
 
