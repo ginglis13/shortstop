@@ -9,10 +9,10 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-# get bot_id
-bot_id = ""
+# get bot_id and api keys
 with open(".secret", "r") as f:
     bot_id = f.readlines()[0].strip()
+    weather_key = f.readlines()[1].strip()
 
 
 @app.route('/', methods=['POST'])
