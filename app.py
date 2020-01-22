@@ -21,7 +21,10 @@ def shortstop():
     message = request.get_json()
     print(message)
 
-    # TODO: bot logic 
+    noise_complaint(message)
+    sign_in(message)
+
+    # TODO: bot logic
 
     return "ok", 200
 
@@ -40,6 +43,16 @@ def reply(msg):
 def sender_is_bot(message):
     """Check if sender is bot to not reply to own msgs"""
     return message['sender_type'] == "bot"
+
+
+def noise_complaint(s):
+    if s == s.upper():
+        reply("Noise complaint registered with room 202")
+
+
+def sign_in(s):
+    if '!attendance' in s:
+        reply("https://docs.google.com/forms/u/0/d/e/1FAIpQLScYQDbMuOAH4EVpUlCAPxRhmPMJGXoYnR0Loo3fIrDzp6ZgTg/formResponse")
 
 
 if __name__ == '__main__':
