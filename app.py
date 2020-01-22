@@ -20,11 +20,11 @@ def shortstop():
     message = request.get_json()['text']
     print(message)
 
+    # bot logic
     noise_complaint(message)
     sign_in(message)
     detain(message)
 
-    # TODO: bot logic
 
     return "ok", 200
 
