@@ -17,11 +17,12 @@ with open(".secret", "r") as f:
 
 @app.route('/', methods=['POST'])
 def shortstop():
+    sender = request.get_json()['name']
     message = request.get_json()['text']
     print(message)
 
     # bot logic
-    noise_complaint(message)
+    noise_complaint(message, sender)
     sign_in(message)
     detain(message)
 
@@ -53,11 +54,13 @@ def sender_is_bot(message):
 
 
 def noise_complaint(msg):
+    """If you're being too loud, register a noise complaint"""
     if msg == msg.upper():
-        reply("Noise complaint registered with room 202")
+        reply("Noise complaint registered with Redwood room 202")
 
 
 def sign_in(msg):
+    """Return attendance google form"""
     if '!attendance' in msg:
         reply("https://docs.google.com/forms/u/0/d/e/1FAIpQLScYQDbMuOAH4EVpUlCAPxRhmPMJGXoYnR0Loo3fIrDzp6ZgTg/formResponse")
 
