@@ -1,6 +1,6 @@
 # shortstop
 
-🤖 Bot for SVS 2020 groupme, hosted on a Raspberry Pi
+🤖 Bot for SVS 2020 groupme. Flask app run on a Digital Ocean droplet
 
 ### Functionality
 
@@ -14,4 +14,7 @@
 
 ### References
 
+[Groupme Dev API](https://dev.groupme.com/)
 [Traffic](https://511.org/sites/default/files/pdfs/511%20SF%20Bay%20Open%20Data%20Specification%20-%20Transit.pdf)
+[Weather API](https://openweathermap.org/api)
+
