@@ -1,4 +1,5 @@
-#!/usr/bin/python3 
+#!/usr/bin/env python3
+
 
 import os
 import json
@@ -9,12 +10,14 @@ from flask import Flask, request
 app = Flask(__name__)
 
 # get bot_id
+bot_id = ""
 with open(".secret", "r") as f:
     bot_id = f.readlines()[0].strip()
 
 
 @app.route('/', methods=['POST'])
 def shortstop():
+    print("hi")
     message = request.get_json()
     print(message)
 
@@ -37,3 +40,7 @@ def reply(msg):
 def sender_is_bot(message):
     """Check if sender is bot to not reply to own msgs"""
     return message['sender_type'] == "bot"
+
+
+if __name__ == '__main__':
+    app.run(host='167.172.204.173')
