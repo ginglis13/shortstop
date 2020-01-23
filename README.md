@@ -5,8 +5,10 @@
 ### Functionality
 
 - all caps messages will be notified of a noise complaint and reported accordingly
+- !usage - show all commands
 - !detain <user> - detain a user
 - !attendance - get the class sign in URL
+- !door <location> - ask to be let in
 - !weather <location> - Lets you know the weather at redwood, att or menlo
 - !commute [TODO] <transitsystem> <station> - Lets you know when the next train/bus for <transitsystem> at <station> is coming
 - !calendar [TODO] <timeframe> - See what Dierre has scheduled for the next <timeframe> (day, week)
