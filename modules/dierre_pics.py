@@ -7,7 +7,7 @@ from urllib.request import Request, urlopen
 import os
 
 
-def upload_image_to_groupme(imgURL):
+def upload_image_to_groupme(imgURL, app_id):
 	imgRequest = requests.get(imgURL, stream=True)
 	filename = 'temp.png'
 	postImage = None
