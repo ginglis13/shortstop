@@ -26,4 +26,5 @@
 
 ### TODO
 
-Restructure app into separate modules
+Restructure app into separate modules, use `reload` function
+Reference Bobbit module loading: https://github.com/pbui/bobbit-ng/blob/master/bobbit.py
