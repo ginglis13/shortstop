@@ -1,6 +1,4 @@
 #!/usr/bin/env python3
-
-
 import os
 import json
 import requests
@@ -28,22 +26,40 @@ with open(".secret", "r") as f:
     OWN_APPID = secrets['weather']
     application_id = secrets['appid']
 
+def call_handler(message):
+    command = message.split()[0]
+    switcher = {
+        '!attendence': sign_in,
+        '!detain': detain,
+        '!weather': weather_handler,
+        '!party': party,
+        '!dierre': dierre_pic_handler,
+        '!roseceremony': bachelor,
+        '!bachelor': bachelor
+    }
+    # Get the function from switcher dictionary, add message as argument, return None on KeyError
+    func = switcher.get(command)
+    print(func)
+    # Execute the function
+    if func: return func(message)
+    return None
 
 @app.route('/', methods=['POST'])
 def shortstop():
     sender = request.get_json()['name']
     message = request.get_json()['text']
+    
+    # Log message
     print(message)
 
-    # bot logic
-    if message and len(message) > 0:
-        if noise_complaint(message): reply(noise_complaint(message))
-        if sign_in(message): reply(sign_in(message))
-        if detain(message): reply(detain(message))
-        if weather_handler(message, OWN_APPID): reply(weather_handler(message,OWN_APPID))
-        if party(message): reply(party(message))
-        dierre_pic_handler(message, bot_id, application_id)
-        if bachelor(message): reply(bachelor(message))
+    # Bot logic
+    if message and len(message) > 0 and message[0] == '!':
+        # Get response from handler, if it's a valid command
+        res = call_handler(message)
+        if res: reply(res)
+    # Check if noise complaint in order
+    elif message == message.upper():
+        reply(noise_complaint(message))
 
     return "ok", 200
 
