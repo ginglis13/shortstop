@@ -11,7 +11,7 @@
 - !commute [TODO] <transitsystem> <station> - Lets you know when the next train/bus for <transitsystem> at <station> is coming
 - !calendar [TODO] <timeframe> - See what Dierre has scheduled for the next <timeframe> (day, week)
 - !party <building> <room> <timewindow> - Let the group know there's a party at your place
-- !dierre [TODO] - get a dierre quote or picture :heart:
+- !dierre - get a dierre quote or picture :heart:
 - shortstop keeps track of the calendar and will wish you a happy birthday!
 - !roseceremony - retrieve the list of current bachelor contestants
 
