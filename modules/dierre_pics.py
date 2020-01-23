@@ -20,26 +20,26 @@ def upload_image_to_groupme(imgURL):
 		headers = {'content-type': 'application/json'}
 		url = 'https://image.groupme.com/pictures'
 		files = {'file': open(filename, 'rb')}
-		payload = {'access_token': 'dlP5RZ20apdbNaGh2aHX6nVc40VSZsGLVNdNRfqL'}
+		payload = {'access_token': app_id}
 		r = requests.post(url, files=files, params=payload)
 		imageurl = r.json()['payload']['url']
 		os.remove(filename)
 		return imageurl
 
-def dierre_pic_handler(s):
+def dierre_pic_handler(s, bot_id, app_id):
     if '!dierre' in s:
         with open('dierre_pics.txt') as f:
             images = []
             for line in f:
                 images.append(line.strip())
-            reply_image(images[random.randrange(len(images))])
+            reply_image(images[random.randrange(len(images))], bot_id, app_id)
 
-def reply_image(imgURL):
+def reply_image(imgURL, bot_id, app_id)):
     url = 'https://api.groupme.com/v3/bots/post'
-    imgURL = upload_image_to_groupme(imgURL)
+    imgURL = upload_image_to_groupme(imgURL, app_id)
     #urlOnGroupMeService = upload_image_to_groupme(imgURL)
     data = {
-	    'bot_id': 'a5a4f11434e289b8c042675339',
+	    'bot_id': bot_id,
 	    'text': '',
 	    'picture_url' : imgURL
 	}

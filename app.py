@@ -30,6 +30,7 @@ with open(".secret", "r") as f:
     f = f.readlines()
     bot_id = f[0].strip()
     OWM_APPID = f[1].strip()
+    application_id = f[2].strip()
 
 
 @app.route('/', methods=['POST'])
@@ -45,7 +46,7 @@ def shortstop():
         detain(message)
         weather_handler(message)
         party(message)
-        dierre_pic_handler(message)
+        dierre_pic_handler(message, bot_id, application_id)
         bachelor(message)
 
 
