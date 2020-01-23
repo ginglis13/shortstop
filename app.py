@@ -37,7 +37,7 @@ def call_handler(message):
         '!weather': weather_handler,
         '!party': party,
 		'!door': door,
-		'!usage', usage,
+		'!usage': usage,
         '!dierre': dierre_pic_handler,
         '!roseceremony': bachelor,
         '!bachelor': bachelor,
