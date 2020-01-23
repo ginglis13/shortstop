@@ -16,6 +16,7 @@ from modules.sign_in import sign_in
 from modules.party import party
 from modules.bachelor import bachelor
 from modules.weather import weather_handler
+from modules.daily_cal import daily_cal
 
 app = Flask(__name__)
 
@@ -36,6 +37,7 @@ def call_handler(message):
         '!dierre': dierre_pic_handler,
         '!roseceremony': bachelor,
         '!bachelor': bachelor
+        '!calendar': daily_cal
     }
     # Get the function from handlers dictionary, add message as argument, return None on KeyError
     handler = methods.get(command)
