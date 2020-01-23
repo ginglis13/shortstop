@@ -13,6 +13,10 @@ from flask import Flask, request
 
 from modules.dierre_pics import dierre_pic_handler
 from modules.detain import detain
+from modules.noise_complaint import noise_complaint
+from modules.sign_in import sign_in
+from modules.party import party
+from modules.bachelor import bachelor
 
 app = Flask(__name__)
 
@@ -69,47 +73,6 @@ def sender_is_bot(message):
     """Check if sender is bot to not reply to own msgs"""
     return message['sender_type'] == "bot"
 
-'''
-def detain(msg):
-    """Detain a user"""
-    msg = msg.split()
-    if msg[0].lower().startswith("!detain") and len(msg) < 4:
-        return ' '.join(msg[1:]) + " has been detained."
-    return None
-'''
-
-
-def noise_complaint(msg):
-    """If you're being too loud, register a noise complaint"""
-    if msg == msg.upper():
-        return "Noise complaint registered with Redwood room 202"
-    return None
-
-
-def sign_in(msg):
-    """Return attendance google form"""
-    if '!attendance' in msg:
-        return "https://docs.google.com/forms/u/0/d/e/1FAIpQLScYQDbMuOAH4EVpUlCAPxRhmPMJGXoYnR0Loo3fIrDzp6ZgTg/formResponse"
-    return None
-
-def party(s):
-    if '!party' in s:
-        s = s.strip().split()
-        if len(s) > 3:
-            return "Imminent noise complaint at {} {}, {}".format(s[1], s[2], ' '.join(s[3:]))
-        else:
-            return "Usage: !party <building> <room> <time>"
-    return None
-
-def bachelor(s):
-    if '!roseceremony' in s or '!bachelor' in s:
-        with open("bachelor.txt") as f:
-            candidates = []
-            for line in f:
-                line = line.strip()
-                candidates.append(line)
-            return ', '.join(candidates)
-    return None
 
 def weather_handler(s):
     if '!weather' in s:
