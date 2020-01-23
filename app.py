@@ -27,10 +27,10 @@ DEFAULT_ZIPCODE = 94025
 
 # get bot_id and api keys
 with open(".secret", "r") as f:
-    f = f.readlines()
-    bot_id = f[0].strip()
-    OWM_APPID = f[1].strip()
-    application_id = f[2].strip()
+    secrets = json.loads(f.read())
+    bot_id = secrets['bot_id']
+    OWN_APPID = secrets['weather']
+    application_id = secrets['appid']
 
 
 @app.route('/', methods=['POST'])
