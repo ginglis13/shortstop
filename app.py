@@ -12,6 +12,7 @@ from urllib.request import Request, urlopen
 from flask import Flask, request
 
 from modules.dierre_pics import dierre_pic_handler
+from modules.detain import detain
 
 app = Flask(__name__)
 
@@ -68,13 +69,14 @@ def sender_is_bot(message):
     """Check if sender is bot to not reply to own msgs"""
     return message['sender_type'] == "bot"
 
-
+'''
 def detain(msg):
     """Detain a user"""
     msg = msg.split()
     if msg[0].lower().startswith("!detain") and len(msg) < 4:
         return ' '.join(msg[1:]) + " has been detained."
     return None
+'''
 
 
 def noise_complaint(msg):
