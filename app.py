@@ -30,7 +30,7 @@ with open(".secret", "r") as f:
 def call_handler(message):
     command = message.split()[0]
     methods = {
-        '!attendence': sign_in,
+        '!attendance': sign_in,
         '!detain': detain,
         '!weather': weather_handler,
         '!party': party,
