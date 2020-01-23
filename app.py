@@ -17,6 +17,8 @@ from modules.party import party
 from modules.bachelor import bachelor
 from modules.weather import weather_handler
 from modules.daily_cal import daily_cal
+from modules.door import door
+from modules.usage import usage
 
 app = Flask(__name__)
 
@@ -34,6 +36,8 @@ def call_handler(message):
         '!detain': detain,
         '!weather': weather_handler,
         '!party': party,
+		'!door': door,
+		'!usage', usage,
         '!dierre': dierre_pic_handler,
         '!roseceremony': bachelor,
         '!bachelor': bachelor,
