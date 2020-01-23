@@ -13,6 +13,7 @@
 - !party <building> <room> <timewindow> - Let the group know there's a party at your place
 - !dierre [TODO] - get a dierre quote or picture :heart:
 - shortstop keeps track of the calendar and will wish you a happy birthday!
+- !roseceremony - retrieve the list of current bachelor contestants
 
 ### References
 
