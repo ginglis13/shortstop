@@ -11,8 +11,9 @@ app = Flask(__name__)
 
 # get bot_id and api keys
 with open(".secret", "r") as f:
-    bot_id = f.readlines()[0].strip()
-    weather_key = f.readlines()[1].strip()
+    f = f.readlines()
+    bot_id = f[0].strip()
+    weather_key = f[1].strip()
 
 
 @app.route('/', methods=['POST'])
@@ -22,7 +23,7 @@ def shortstop():
     print(message)
 
     # bot logic
-    noise_complaint(message, sender)
+    noise_complaint(message)
     sign_in(message)
     detain(message)
 
