@@ -17,6 +17,7 @@ from modules.noise_complaint import noise_complaint
 from modules.sign_in import sign_in
 from modules.party import party
 from modules.bachelor import bachelor
+from modules.weather import weather_handler
 
 app = Flask(__name__)
 
@@ -49,7 +50,7 @@ def shortstop():
         if noise_complaint(message): reply(noise_complaint(message))
         if sign_in(message): reply(sign_in(message))
         if detain(message): reply(detain(message))
-        weather_handler(message)
+        if weather_handler(message, OWN_APPID): reply(weather_handler(message), OWN_APPID)
         if party(message): reply(party(message))
         dierre_pic_handler(message, bot_id, application_id)
         if bachelor(message): reply(bachelor(message))
@@ -73,16 +74,17 @@ def sender_is_bot(message):
     """Check if sender is bot to not reply to own msgs"""
     return message['sender_type'] == "bot"
 
-
-def weather_handler(s):
+'''
+def weather_handler(s, OWM_APPID):
     if '!weather' in s:
         args = s.strip().split()
         if len(args) > 1:
-            weather(args[1])
+            return weather(args[1], OWM_APPID)
         else:
-            weather()
+            return weather(None, OWM_APPID)
+    return None
 
-def weather(location=None):
+def weather(location=None, OWM_APPID):
     print('location', location)
     weather_url = 'http://api.openweathermap.org/data/2.5/weather?zip={},us'
 
@@ -110,7 +112,7 @@ def weather(location=None):
         desc = None
 
     message = 'Current weather in {} is {}°F, {}'.format(resp['name'], temp, desc)
-    reply(message)
-
+    return message
+'''
 if __name__ == '__main__':
     app.run(host='167.172.204.173')
