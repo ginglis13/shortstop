@@ -29,14 +29,14 @@ with open(".secret", "r") as f:
 
 def call_handler(message):
     command = message.split()[0]
-    handlers = {
+    methods = {
         '!attendence': sign_in,
         '!detain': detain,
         '!weather': weather_handler,
         '!party': party,
         '!dierre': dierre_pic_handler,
         '!roseceremony': bachelor,
-        '!bachelor': bachelor
+        '!bachelor': bachelor,
         '!calendar': daily_cal
     }
     # Get the function from handlers dictionary, add message as argument, return None on KeyError
