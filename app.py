@@ -28,7 +28,7 @@ with open(".secret", "r") as f:
 
 def call_handler(message):
     command = message.split()[0]
-    switcher = {
+    handlers = {
         '!attendence': sign_in,
         '!detain': detain,
         '!weather': weather_handler,
@@ -37,11 +37,11 @@ def call_handler(message):
         '!roseceremony': bachelor,
         '!bachelor': bachelor
     }
-    # Get the function from switcher dictionary, add message as argument, return None on KeyError
-    func = switcher.get(command)
-    print(func)
+    # Get the function from handlers dictionary, add message as argument, return None on KeyError
+    handler = methods.get(command)
+
     # Execute the function
-    if func: return func(message)
+    if handler: return handler(message)
     return None
 
 @app.route('/', methods=['POST'])
