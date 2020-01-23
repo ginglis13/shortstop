@@ -34,7 +34,7 @@ def dierre_pic_handler(s, bot_id, app_id):
                 images.append(line.strip())
             reply_image(images[random.randrange(len(images))], bot_id, app_id)
 
-def reply_image(imgURL, bot_id, app_id)):
+def reply_image(imgURL, bot_id, app_id):
     url = 'https://api.groupme.com/v3/bots/post'
     imgURL = upload_image_to_groupme(imgURL, app_id)
     #urlOnGroupMeService = upload_image_to_groupme(imgURL)
