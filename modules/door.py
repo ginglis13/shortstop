@@ -3,5 +3,7 @@ def door(s):
 		return "I'm in!"
     if '!door' in s and len(s.split(' ')) > 1:
         return 'Let me in at '+s.split(' ')[1] + '!'
+	if '!door' in s:
+		return 'usage: !door <location>'
 
     return None
