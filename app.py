@@ -50,7 +50,7 @@ def shortstop():
         if noise_complaint(message): reply(noise_complaint(message))
         if sign_in(message): reply(sign_in(message))
         if detain(message): reply(detain(message))
-        if weather_handler(message, OWN_APPID): reply(weather_handler(message), OWN_APPID)
+        if weather_handler(message, OWN_APPID): reply(weather_handler(message,OWN_APPID))
         if party(message): reply(party(message))
         dierre_pic_handler(message, bot_id, application_id)
         if bachelor(message): reply(bachelor(message))
