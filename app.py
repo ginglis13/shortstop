@@ -3,19 +3,22 @@
 
 import os
 import json
+import requests
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 from flask import Flask, request
 
 app = Flask(__name__)
 
-ZIPCODE   = {
-    '#redwood':  94062, # Redwood, CA
-    '#nd':   46556, # Notre Dame, IN
-    '#menlo': 94025, # Menlo, CA NOT RIGHT
-    '#at&t': 94025 # NOT RIGHT
+ZIPCODE = {
+    'redwood':  94062, # Redwood, CA
+    'nd':   46556, # Notre Dame, IN
+    'menlo': 94025, # Menlo, CA 
+    'att': 94301 # Palo Alto, CA
 }
+
 DEFAULT_ZIPCODE = 94025
+
 
 # get bot_id and api keys
 with open(".secret", "r") as f:
@@ -44,7 +47,7 @@ def detain(msg):
     """Detain a user"""
     msg = msg.split()
     if msg[0].lower().startswith("!detain") and len(msg) < 4:
-        reply(' '.join(msg[1:]) + " has been detained")
+        reply(' '.join(msg[1:]) + " has been detained.")
 
 
 def reply(msg):
@@ -77,12 +80,16 @@ def sign_in(msg):
 def weather_handler(s):
     if '!weather' in s:
         args = s.strip().split()
+        print(len(args))
         if len(args) > 1:
+            print(args)
             weather(args[1])
         else:
+            print(args)
             weather()
 
 def weather(location=None):
+    print('location', location)
     weather_url = 'http://api.openweathermap.org/data/2.5/weather?zip={},us'
 
     if not location:
@@ -101,13 +108,14 @@ def weather(location=None):
 
     resp = requests.get(weather_url, params=parm)
     resp = json.loads(resp.text)
-    pprint.pprint(resp)
     temp = resp['main']['temp']
+
     try:
         desc = resp['weather'][0]['description']
     except:
         desc = None
-    message = 'Current weather is {}°F, {}'.format(temp,desc)
+
+    message = 'Current weather in {} is {}°F, {}'.format(resp['name'], temp, desc)
     reply(message)
 
 if __name__ == '__main__':
