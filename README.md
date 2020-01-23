@@ -7,10 +7,10 @@
 - all caps messages will be notified of a noise complaint and reported accordingly
 - !detain <user> - detain a user
 - !attendance - get the class sign in URL
-- !weather [WIP] - Lets you know if you need an umbrella
+- !weather <location> - Lets you know the weather at redwood, att or menlo
 - !commute [TODO] <transitsystem> <station> - Lets you know when the next train/bus for <transitsystem> at <station> is coming
 - !calendar [TODO] <timeframe> - See what Dierre has scheduled for the next <timeframe> (day, week)
-- !party [TODO] <room> <timewindow> - Let the group know there's a party at your place
+- !party <building> <room> <timewindow> - Let the group know there's a party at your place
 - !dierre [TODO] - get a dierre quote or picture :heart:
 - shortstop keeps track of the calendar and will wish you a happy birthday!
 

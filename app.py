@@ -38,6 +38,7 @@ def shortstop():
     sign_in(message)
     detain(message)
     weather_handler(message)
+    party(message)
 
 
     return "ok", 200
@@ -76,6 +77,14 @@ def sign_in(msg):
     """Return attendance google form"""
     if '!attendance' in msg:
         reply("https://docs.google.com/forms/u/0/d/e/1FAIpQLScYQDbMuOAH4EVpUlCAPxRhmPMJGXoYnR0Loo3fIrDzp6ZgTg/formResponse")
+
+def party(s):
+    if '!party' in s:
+        s = s.strip().split()
+        if len(s) > 3:
+            reply("Imminent noise complaint at {} {}, {}".format(s[1], s[2], ' '.join(s[3:])))
+        else:
+            reply("Usage: !party <building> <room> <time>")
 
 def weather_handler(s):
     if '!weather' in s:
