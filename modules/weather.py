@@ -1,5 +1,14 @@
 
 
+ZIPCODE = {
+    'redwood':  94062, # Redwood, CA
+    'nd':   46556, # Notre Dame, IN
+    'menlo': 94025, # Menlo, CA 
+    'att': 94301 # Palo Alto, CA
+}
+
+DEFAULT_ZIPCODE = 94025
+
 def weather_handler(s, OWM_APPID):
     if '!weather' in s:
         args = s.strip().split()

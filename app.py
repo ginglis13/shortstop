@@ -20,7 +20,7 @@ from modules.bachelor import bachelor
 from modules.weather import weather_handler
 
 app = Flask(__name__)
-
+'''
 ZIPCODE = {
     'redwood':  94062, # Redwood, CA
     'nd':   46556, # Notre Dame, IN
@@ -29,7 +29,7 @@ ZIPCODE = {
 }
 
 DEFAULT_ZIPCODE = 94025
-
+'''
 
 # get bot_id and api keys
 with open(".secret", "r") as f:
