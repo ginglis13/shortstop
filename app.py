@@ -46,6 +46,7 @@ def shortstop():
         weather_handler(message)
         party(message)
         dierre_pic_handler(message)
+        bachelor(message)
 
 
     return "ok", 200
