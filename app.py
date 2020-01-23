@@ -11,6 +11,8 @@ from urllib.request import Request, urlopen
 
 from flask import Flask, request
 
+from modules.dierre_pics import dierre_pic_handler
+
 app = Flask(__name__)
 
 ZIPCODE = {
