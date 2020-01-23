@@ -9,7 +9,7 @@ def weather_handler(s, OWM_APPID):
             return weather(None, OWM_APPID)
     return None
 
-def weather(location=None, OWM_APPID):
+def weather(location, OWM_APPID):
     print('location', location)
     weather_url = 'http://api.openweathermap.org/data/2.5/weather?zip={},us'
 
