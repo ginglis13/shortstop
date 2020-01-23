@@ -41,13 +41,13 @@ def shortstop():
 
     # bot logic
     if message and len(message) > 0:
-        noise_complaint(message)
-        sign_in(message)
-        detain(message)
+        if noise_complaint(message): reply(noise_complaint(message))
+        if sign_in(message): reply(sign_in(message))
+        if detain(message): reply(detain(message))
         weather_handler(message)
-        party(message)
+        if party(message): reply(party(message))
         dierre_pic_handler(message, bot_id, application_id)
-        bachelor(message)
+        if bachelor(message): reply(bachelor(message))
 
 
     return "ok", 200
@@ -73,44 +73,48 @@ def detain(msg):
     """Detain a user"""
     msg = msg.split()
     if msg[0].lower().startswith("!detain") and len(msg) < 4:
-        reply(' '.join(msg[1:]) + " has been detained.")
+        return ' '.join(msg[1:]) + " has been detained."
+    return None
 
 
 def noise_complaint(msg):
     """If you're being too loud, register a noise complaint"""
     if msg == msg.upper():
-        reply("Noise complaint registered with Redwood room 202")
+        return "Noise complaint registered with Redwood room 202"
+    return none
 
 
 def sign_in(msg):
     """Return attendance google form"""
     if '!attendance' in msg:
-        reply("https://docs.google.com/forms/u/0/d/e/1FAIpQLScYQDbMuOAH4EVpUlCAPxRhmPMJGXoYnR0Loo3fIrDzp6ZgTg/formResponse")
+        return "https://docs.google.com/forms/u/0/d/e/1FAIpQLScYQDbMuOAH4EVpUlCAPxRhmPMJGXoYnR0Loo3fIrDzp6ZgTg/formResponse"
+    return None
 
 def party(s):
     if '!party' in s:
         s = s.strip().split()
         if len(s) > 3:
-            reply("Imminent noise complaint at {} {}, {}".format(s[1], s[2], ' '.join(s[3:])))
+            return "Imminent noise complaint at {} {}, {}".format(s[1], s[2], ' '.join(s[3:]))
         else:
-            reply("Usage: !party <building> <room> <time>")
+            return "Usage: !party <building> <room> <time>"
+    return None
 
 def bachelor(s):
     if '!roseceremony' in s or '!bachelor' in s:
         with open("bachelor.txt") as f:
+            candidates = []
             for line in f:
                 line = line.strip()
-                reply(line)
+                candidates.append(line)
+            return ', '.join(candidates)
+    return None
 
 def weather_handler(s):
     if '!weather' in s:
         args = s.strip().split()
-        print(len(args))
         if len(args) > 1:
-            print(args)
             weather(args[1])
         else:
-            print(args)
             weather()
 
 def weather(location=None):
