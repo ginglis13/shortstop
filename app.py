@@ -86,6 +86,13 @@ def party(s):
         else:
             reply("Usage: !party <building> <room> <time>")
 
+def bachelor(s):
+    if '!roseceremony' in s or '!bachelor' in s:
+        with open("bachelor.txt") as f:
+            for line in f:
+                line = line.strip()
+                reply(line)
+
 def weather_handler(s):
     if '!weather' in s:
         args = s.strip().split()
