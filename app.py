@@ -39,11 +39,13 @@ def shortstop():
     print(message)
 
     # bot logic
-    noise_complaint(message)
-    sign_in(message)
-    detain(message)
-    weather_handler(message)
-    party(message)
+    if message and len(message) > 0:
+        noise_complaint(message)
+        sign_in(message)
+        detain(message)
+        weather_handler(message)
+        party(message)
+        dierre_pic_handler(message)
 
 
     return "ok", 200
