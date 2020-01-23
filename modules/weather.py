@@ -1,4 +1,5 @@
-
+import requests
+import json
 
 ZIPCODE = {
     'redwood':  94062, # Redwood, CA
