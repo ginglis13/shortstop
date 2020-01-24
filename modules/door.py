@@ -1,6 +1,6 @@
-def door(s):
-    if '!door' in s and s[1] == 'in':
+def door(sender, message):
+    if '!door' in message and message[1] == 'in':
         return "I'm in!"
-    if '!door' in s and len(s.split(' ')) > 1:
-        return 'Let me in at '+s.split(' ')[1] + '!'
+    if '!door' in message and len(message.split(' ')) > 1:
+        return 'Let me in at '+ message.split(' ')[1] + '!'
     return None

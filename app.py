@@ -29,7 +29,7 @@ with open(".secret", "r") as f:
     OWN_APPID = secrets['weather']
     application_id = secrets['appid']
 
-def call_handler(message):
+def call_handler(sender, message, bot_id, app_id):
     command = message.split()[0]
     methods = {
         '!attendance': sign_in,
@@ -47,7 +47,7 @@ def call_handler(message):
     handler = methods.get(command)
 
     # Execute the function
-    if handler: return handler(message)
+    if handler: return handler(sender, message, bot_id, app_id)
     return None
 
 @app.route('/', methods=['POST'])
@@ -61,11 +61,11 @@ def shortstop():
     # Bot logic
     if message and len(message) > 0 and message[0] == '!':
         # Get response from handler, if it's a valid command
-        res = call_handler(message)
+        res = call_handler(sender, message, bot_id, app_id)
         if res: reply(res)
     # Check if noise complaint in order
     elif message == message.upper():
-        reply(noise_complaint(message))
+        reply(noise_complaint(sender, message, bot_id, app_id))
 
     return "ok", 200
 

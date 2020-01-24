@@ -13,18 +13,20 @@ ZIPCODE = {
 
 DEFAULT_ZIPCODE = 94025
 
-# get api key
 with open(".secret", "r") as f:
+    secrets = json.loads(f.read())
     OWN_APPID = secrets['weather']
 
-
-def weather_handler(s, OWM_APPID):
-    args = s.strip().split()
+ 
+def weather_handler(sender, message, bot_id, app_id):
+    
+    args = message.strip().split()
     if len(args) > 1:
         return weather(args[1], OWM_APPID)
     else:
         return weather(None, OWM_APPID)
 
+      
 def weather(location, OWM_APPID):
     print('location', location)
     weather_url = 'http://api.openweathermap.org/data/2.5/weather?zip={},us'
