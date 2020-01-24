@@ -32,7 +32,7 @@ def dierre_pic_handler(sender, message, bot_id, app_id):
         for line in f:
             images.append(line.strip())
         reply_image(images[random.randrange(len(images))], bot_id, app_id)
-	return None
+    return None
 
 def reply_image(imgURL, bot_id, app_id):
     url = 'https://api.groupme.com/v3/bots/post'
