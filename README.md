@@ -25,6 +25,7 @@
 
 [Weather API](https://openweathermap.org/api)
 
+[Google Calendar API](https://developers.google.com/calendar/v3/reference)
 
 ### TODO
 
