@@ -50,7 +50,7 @@ def daily_cal(sender, message, bot_id, app_id):
     for event in events:
         start = event['start'].get('dateTime', event['start'].get('date'))
         event_return.append( '{} {}'.format(start,event['summary']) )
-    return '\n'.join(event_return)
+    return '\n\n'.join(event_return)
 
 if __name__ == '__main__':
     daily_cal()
