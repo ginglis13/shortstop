@@ -1,3 +1,5 @@
 .secret
 *.swp
 __pycache__
+modules/credentials.json
+modules/token.pickle
