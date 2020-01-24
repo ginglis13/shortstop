@@ -6,16 +6,18 @@
 
 - all caps messages will be notified of a noise complaint and reported accordingly
 - !usage - show all commands
-- !detain <user> - detain a user
+
 - !attendance - get the class sign in URL
-- !door <location> - ask to be let in
-- !weather <location> - Lets you know the weather at redwood, att or menlo
-- !commute [TODO] <transitsystem> <station> - Lets you know when the next train/bus for <transitsystem> at <station> is coming
-- !calendar [TODO] <timeframe> - See what Dierre has scheduled for the next <timeframe> (day, week)
-- !party <building> <room> <timewindow> - Let the group know there's a party at your place
-- !dierre - get a dierre quote or picture :heart:
-- shortstop keeps track of the calendar and will wish you a happy birthday!
+- !calendar \<timeframe\> - See what Dierre has scheduled for the next <timeframe> (day, week)
+- !detain \<user\> - detain a user
+- !dierre - get a dierre picture and a quote :heart:
+- !door \<location\> - ask to be let in
+- !party \<building\> \<room\> \<timewindow\> - Let the group know there's a party at your place
 - !roseceremony - retrieve the list of current bachelor contestants
+- !train \<transitsystem\> \<station\> - Lets you know when the next train/bus for <transitsystem> at <station> is coming
+- !weather \<location\> - Lets you know the weather at redwood, att or menlo
+
+- shortstop keeps track of the calendar and will wish you a happy birthday!
 
 ### References
 
