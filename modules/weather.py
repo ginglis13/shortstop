@@ -1,10 +1,13 @@
 import requests
 import json
 
+
+# Globs
+
 ZIPCODE = {
     'redwood':  94062, # Redwood, CA
     'nd':   46556, # Notre Dame, IN
-    'menlo': 94025, # Menlo, CA 
+    'menlo': 94025, # Menlo, CA
     'att': 94301 # Palo Alto, CA
 }
 
@@ -14,28 +17,29 @@ with open(".secret", "r") as f:
     secrets = json.loads(f.read())
     OWN_APPID = secrets['weather']
 
+ 
 def weather_handler(sender, message, bot_id, app_id):
-    if '!weather' in message:
-        args = message.strip().split()
-        if len(args) > 1:
-            return weather(args[1], OWM_APPID)
-        else:
-            return weather(None, OWM_APPID)
-    return None
+    
+    args = message.strip().split()
+    if len(args) > 1:
+        return weather(args[1], OWM_APPID)
+    else:
+        return weather(None, OWM_APPID)
 
+      
 def weather(location, OWM_APPID):
     print('location', location)
     weather_url = 'http://api.openweathermap.org/data/2.5/weather?zip={},us'
 
     if not location:
-        location = DEFAULT_ZIPCODE 
+        location = DEFAULT_ZIPCODE
     elif location in ZIPCODE:
         location = ZIPCODE[location]
     else:
         location = DEFAULT_ZIPCODE
 
     weather_url = weather_url.format(location)
-    
+
     parm  = {
         'appid': OWM_APPID,
         'units': 'imperial',
