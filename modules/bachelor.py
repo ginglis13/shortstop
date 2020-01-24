@@ -1,7 +1,7 @@
 
 
-def bachelor(s):
-    if '!roseceremony' in s or '!bachelor' in s:
+def bachelor(sender, message, bot_id, app_id):
+    if '!roseceremony' in message or '!bachelor' in message:
         with open("bachelor.txt") as f:
             candidates = []
             for line in f:

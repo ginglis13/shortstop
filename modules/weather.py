@@ -10,9 +10,13 @@ ZIPCODE = {
 
 DEFAULT_ZIPCODE = 94025
 
-def weather_handler(s, OWM_APPID):
-    if '!weather' in s:
-        args = s.strip().split()
+with open(".secret", "r") as f:
+    secrets = json.loads(f.read())
+    OWN_APPID = secrets['weather']
+
+def weather_handler(sender, message, bot_id, app_id):
+    if '!weather' in message:
+        args = message.strip().split()
         if len(args) > 1:
             return weather(args[1], OWM_APPID)
         else:
