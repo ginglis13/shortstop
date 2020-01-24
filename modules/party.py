@@ -1,4 +1,4 @@
-def party(message):
+def party(sender, message, bot_id, app_id):
     '''
     party(message)
         message: !party <content>

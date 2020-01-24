@@ -26,8 +26,8 @@ def upload_image_to_groupme(imgURL, app_id):
 		os.remove(filename)
 		return imageurl
 
-def dierre_pic_handler(s, bot_id, app_id):
-    if '!dierre' in s:
+def dierre_pic_handler(sender, message, bot_id, app_id):
+    if '!dierre' in message:
         with open('dierre_pics.txt') as f:
             images = []
             for line in f:

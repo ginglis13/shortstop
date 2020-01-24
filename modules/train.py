@@ -3,7 +3,7 @@
 import requests
 import json
 
-def train_handler(message):
+def train_handler(sender, message, bot_id, app_id):
     usage = "usage: !train <trainsystem> <station>\n\
             \t<trainsystem> Caltrain: CT, Bart: BA\n\
             \t<station> Stop code for station"
