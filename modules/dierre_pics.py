@@ -34,13 +34,21 @@ def dierre_pic_handler(sender, message, bot_id, app_id):
         reply_image(images[random.randrange(len(images))], bot_id, app_id)
     return None
 
+def dierre_quote():
+	quotes = []
+	with open('dierre_quotes.txt') as f:
+		for line in f:
+			quotes.append(line.strip())
+	return quotes[random.randrange(len(quotes))]
+		
+
 def reply_image(imgURL, bot_id, app_id):
     url = 'https://api.groupme.com/v3/bots/post'
     imgURL = upload_image_to_groupme(imgURL, app_id)
     #urlOnGroupMeService = upload_image_to_groupme(imgURL)
     data = {
 	    'bot_id': bot_id,
-	    'text': '',
+	    'text': dierre_quote(),
 	    'picture_url' : imgURL
 	}
     # 'picture_url': imgURL
