@@ -20,29 +20,34 @@ from modules.daily_cal import daily_cal
 from modules.door import door
 from modules.usage import usage
 
+
+# Globs
+
 app = Flask(__name__)
 
 # get bot_id and api keys
 with open(".secret", "r") as f:
     secrets = json.loads(f.read())
     bot_id = secrets['bot_id']
-    OWN_APPID = secrets['weather']
-    application_id = secrets['appid']
+    app_id = secrets['appid']
+
 
 def call_handler(sender, message, bot_id, app_id):
+    """Route commands to the correct module function"""
     command = message.split()[0]
     methods = {
         '!attendance': sign_in,
         '!detain': detain,
         '!weather': weather_handler,
         '!party': party,
-		'!door': door,
-		'!usage': usage,
+        '!door': door,
+        '!usage': usage,
         '!dierre': dierre_pic_handler,
         '!roseceremony': bachelor,
         '!bachelor': bachelor,
         '!calendar': daily_cal
     }
+
     # Get the function from handlers dictionary, add message as argument, return None on KeyError
     handler = methods.get(command)
 
@@ -50,11 +55,13 @@ def call_handler(sender, message, bot_id, app_id):
     if handler: return handler(sender, message, bot_id, app_id)
     return None
 
+
 @app.route('/', methods=['POST'])
 def shortstop():
+    """Handle requests from GroupMe"""
     sender = request.get_json()['name']
     message = request.get_json()['text']
-    
+
     # Log message
     print(message)
 
