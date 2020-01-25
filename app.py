@@ -71,7 +71,7 @@ def shortstop():
         res = call_handler(sender, message, bot_id, app_id)
         if res: reply(res)
     # Check if noise complaint in order
-    elif message == message.upper():
+    elif message and message == message.upper():
         reply(noise_complaint(sender, message, bot_id, app_id))
 
     return "ok", 200
