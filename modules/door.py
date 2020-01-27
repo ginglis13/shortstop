@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-def door(sender, message, bot_id, app_id):
+def door_handler(sender, message, bot_id, app_id):
     '''
     Get in the door wherever you at
     '''    

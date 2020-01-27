@@ -1,4 +1,4 @@
-def detain(sender, message, bot_id, app_id):
+def detain_handler(sender, message, bot_id, app_id):
     """Detain a user"""
     usage = "Detain a user.\n\
              usage: !detain <user>"

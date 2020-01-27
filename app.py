@@ -9,20 +9,18 @@ from urllib.request import Request, urlopen
 
 from flask import Flask, request
 
+from modules.bachelor import bachelor_handler
+from modules.daily_cal import daily_cal_handler
+from modules.detain import detain_handler
 from modules.dierre_pics import dierre_pic_handler
-from modules.detain import detain
-from modules.noise_complaint import noise_complaint
-from modules.sign_in import sign_in
-from modules.party import party
-from modules.bachelor import bachelor
+from modules.door import door_handler
+from modules.noise_complaint import noise_complaint_handler
+from modules.party import party_handler
+from modules.sign_in import sign_in_handler
+from modules.usage import usage_handler
 from modules.weather import weather_handler
-from modules.daily_cal import daily_cal
-from modules.door import door
-from modules.usage import usage
-
 
 # Globs
-
 app = Flask(__name__)
 
 # get bot_id and api keys
@@ -72,7 +70,7 @@ def shortstop():
         if res: reply(res)
     # Check if noise complaint in order
     elif message and message == message.upper():
-        reply(noise_complaint(sender, message, bot_id, app_id))
+        reply(noise_complaint_handler(sender, message, bot_id, app_id))
 
     return "ok", 200
 
