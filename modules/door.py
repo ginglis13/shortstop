@@ -19,6 +19,6 @@ def door_handler(sender, message, bot_id, app_id):
     return None
 
 if __name__ == '__main__':
-    print(door("ben", "!door in", "x", "x"))
-    print(door("jack", "!door", "x", "x"))
-    print(door("ben", "!door hi hi hi", "x", "x"))
+    print(door_handler("ben", "!door in", "x", "x"))
+    print(door_handler("jack", "!door", "x", "x"))
+    print(door_handler("ben", "!door hi hi hi", "x", "x"))

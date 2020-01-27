@@ -53,4 +53,4 @@ def daily_cal_handler(sender, message, bot_id, app_id):
     return '\n\n'.join(event_return)
 
 if __name__ == '__main__':
-    daily_cal()
+    daily_cal_handler()
