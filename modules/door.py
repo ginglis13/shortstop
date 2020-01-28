@@ -9,11 +9,11 @@ def door_handler(sender, message, bot_id, app_id):
 
     if len(message) == 1:
         return "Let me in!"
-    elif len(message) == 2:
+    elif len(message) >= 2:
         if message[1] == "in":
             return "I'm in!"
         else:
-            return 'Let me in at ' + message[1] + '!'
+            return 'Let me in at ' + ' '.join(message[1:]) + '!'
     else:
         return usage_message
     return None
