@@ -9,21 +9,19 @@ from urllib.request import Request, urlopen
 
 from flask import Flask, request
 
+from modules.bachelor import bachelor_handler
+from modules.daily_cal import daily_cal_handler
+from modules.detain import detain_handler
 from modules.dierre_pics import dierre_pic_handler
-from modules.detain import detain
-from modules.noise_complaint import noise_complaint
-from modules.sign_in import sign_in
-from modules.party import party
-from modules.bachelor import bachelor
+from modules.door import door_handler
+from modules.noise_complaint import noise_complaint_handler
+from modules.party import party_handler
+from modules.sign_in import sign_in_handler
+from modules.usage import usage_handler
 from modules.weather import weather_handler
-from modules.daily_cal import daily_cal
-from modules.door import door
-from modules.usage import usage
 from modules.ndcalifornia import instagram_handler
 
-
 # Globs
-
 app = Flask(__name__)
 
 # get bot_id and api keys
@@ -37,18 +35,18 @@ def call_handler(sender, message, bot_id, app_id):
     """Route commands to the correct module function"""
     command = message.split()[0]
     methods = {
-        '!attendance': sign_in,
-        '!detain': detain,
-        '!weather': weather_handler,
-        '!party': party,
-        '!door': door,
-        '!usage': usage,
+        '!attendance': sign_in_handler,
+        '!bachelor': bachelor_handler,
+        '!calendar': daily_cal_handler,
+        '!detain': detain_handler,
         '!dierre': dierre_pic_handler,
-        '!roseceremony': bachelor,
-        '!bachelor': bachelor,
-        '!calendar': daily_cal,
         '!instagram': instagram_handler,
-        '!ndcalifornia': instagram_handler
+        '!ndcalifornia': instagram_handler,
+        '!roseceremony': bachelor_handler,
+        '!door': door_handler,
+        '!party': party_handler,
+        '!usage': usage_handler,
+        '!weather': weather_handler
     }
 
     # Get the function from handlers dictionary, add message as argument, return None on KeyError
@@ -74,8 +72,8 @@ def shortstop():
         res = call_handler(sender, message, bot_id, app_id)
         if res: reply(res)
     # Check if noise complaint in order
-    elif message == message.upper():
-        reply(noise_complaint(sender, message, bot_id, app_id))
+    elif message and message == message.upper():
+        reply(noise_complaint_handler(sender, message, bot_id, app_id))
 
     return "ok", 200
 

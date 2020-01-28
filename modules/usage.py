@@ -1,6 +1,6 @@
 # usage.py
 
-def usage(sender, message, bot_id, app_id):
+def usage_handler(sender, message, bot_id, app_id):
     '''Display usage message for commands to chat'''
     if '!usage' in message:
         with open("README.md") as f:

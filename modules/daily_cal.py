@@ -9,7 +9,7 @@ from google.auth.transport.requests import Request
 # If modifying these scopes, delete the file token.pickle.
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 
-def daily_cal(sender, message, bot_id, app_id):
+def daily_cal_handler(sender, message, bot_id, app_id):
     """Shows basic usage of the Google Calendar API.
     Prints the start and name of the next 10 events on the user's calendar.
     """
@@ -53,4 +53,4 @@ def daily_cal(sender, message, bot_id, app_id):
     return '\n\n'.join(event_return)
 
 if __name__ == '__main__':
-    daily_cal()
+    daily_cal_handler()
