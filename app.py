@@ -34,16 +34,16 @@ def call_handler(sender, message, bot_id, app_id):
     """Route commands to the correct module function"""
     command = message.split()[0]
     methods = {
-        '!attendance': sign_in,
-        '!detain': detain,
-        '!weather': weather_handler,
-        '!party': party,
-        '!door': door,
-        '!usage': usage,
+        '!attendance': sign_in_handler,
+        '!bachelor': bachelor_handler,
+        '!calendar': daily_cal_handler,
+        '!detain': detain_handler,
         '!dierre': dierre_pic_handler,
-        '!roseceremony': bachelor,
-        '!bachelor': bachelor,
-        '!calendar': daily_cal
+        '!door': door_handler,
+        '!party': party_handler,
+        '!roseceremony': bachelor_handler,
+        '!usage': usage_handler,
+        '!weather': weather_handler
     }
 
     # Get the function from handlers dictionary, add message as argument, return None on KeyError
