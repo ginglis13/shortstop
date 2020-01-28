@@ -3,6 +3,7 @@ import os
 import json
 import requests
 from importlib import reload # for loading in all modules
+import re
 
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
@@ -69,7 +70,7 @@ def shortstop():
         res = call_handler(sender, message, bot_id, app_id)
         if res: reply(res)
     # Check if noise complaint in order
-    elif message and message == message.upper():
+    elif message and message == message.upper() and len(message) > 0 and re.search('[A-Z]', message):
         reply(noise_complaint_handler(sender, message, bot_id, app_id))
 
     return "ok", 200
