@@ -16,6 +16,7 @@
 - !roseceremony - retrieve the list of current bachelor contestants
 - !train \<transitsystem\> \<station\> - Lets you know when the next train/bus for <transitsystem> at <station> is coming
 - !weather \<location\> - Lets you know the weather at redwood, att or menlo
+- !instagram - get the NDCalifornia instagram story URL
 
 - shortstop keeps track of the calendar and will wish you a happy birthday!
 

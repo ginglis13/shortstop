@@ -19,6 +19,7 @@ from modules.weather import weather_handler
 from modules.daily_cal import daily_cal
 from modules.door import door
 from modules.usage import usage
+from modules.ndcalifornia import instagram_handler
 
 
 # Globs
@@ -45,7 +46,9 @@ def call_handler(sender, message, bot_id, app_id):
         '!dierre': dierre_pic_handler,
         '!roseceremony': bachelor,
         '!bachelor': bachelor,
-        '!calendar': daily_cal
+        '!calendar': daily_cal,
+        '!instagram': instagram_handler,
+        '!ndcalifornia': instagram_handler
     }
 
     # Get the function from handlers dictionary, add message as argument, return None on KeyError
