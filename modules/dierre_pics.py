@@ -7,7 +7,7 @@ from urllib.request import Request, urlopen
 import os
 
 
-def upload_image_to_groupme(imgURL, app_id):
+def upload_image_to_groupme(imgURL, app_id) -> str:
 	imgRequest = requests.get(imgURL, stream=True)
 	filename = 'temp.png'
 	postImage = None
@@ -26,7 +26,7 @@ def upload_image_to_groupme(imgURL, app_id):
 		os.remove(filename)
 		return imageurl
 
-def dierre_pic_handler(sender, message, bot_id, app_id):
+def dierre_pic_handler(sender, message, bot_id, app_id) -> str:
     with open('dierre_pics.txt') as f:
         images = []
         for line in f:
@@ -34,7 +34,7 @@ def dierre_pic_handler(sender, message, bot_id, app_id):
         reply_image(images[random.randrange(len(images))], bot_id, app_id)
     return None
 
-def dierre_quote():
+def dierre_quote() -> str:
 	quotes = []
 	with open('dierre_quotes.txt') as f:
 		for line in f:
@@ -42,7 +42,7 @@ def dierre_quote():
 	return quotes[random.randrange(len(quotes))]
 		
 
-def reply_image(imgURL, bot_id, app_id):
+def reply_image(imgURL, bot_id, app_id) -> str:
     url = 'https://api.groupme.com/v3/bots/post'
     imgURL = upload_image_to_groupme(imgURL, app_id)
     #urlOnGroupMeService = upload_image_to_groupme(imgURL)

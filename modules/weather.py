@@ -18,7 +18,7 @@ with open(".secret", "r") as f:
     OWM_APPID = secrets['weather']
 
  
-def weather_handler(sender, message, bot_id, app_id):
+def weather_handler(sender, message, bot_id, app_id) -> str:
     
     args = message.strip().split()
     if len(args) > 1:
@@ -27,7 +27,7 @@ def weather_handler(sender, message, bot_id, app_id):
         return weather(None, OWM_APPID)
 
       
-def weather(location, OWM_APPID):
+def weather(location, OWM_APPID) -> str:
     print('location', location)
     weather_url = 'http://api.openweathermap.org/data/2.5/weather?zip={},us'
 
