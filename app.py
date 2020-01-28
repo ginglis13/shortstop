@@ -10,6 +10,7 @@ from urllib.request import Request, urlopen
 from flask import Flask, request
 
 from modules.bachelor import bachelor_handler
+from modules.bug import bug_handler
 from modules.daily_cal import daily_cal_handler
 from modules.detain import detain_handler
 from modules.dierre_pics import dierre_pic_handler
@@ -36,6 +37,7 @@ def call_handler(sender, message, bot_id, app_id):
     methods = {
         '!attendance': sign_in_handler,
         '!bachelor': bachelor_handler,
+        '!bug': bug_handler,
         '!calendar': daily_cal_handler,
         '!detain': detain_handler,
         '!dierre': dierre_pic_handler,
