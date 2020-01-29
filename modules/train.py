@@ -4,6 +4,8 @@ import requests
 import json
 
 def train_handler(sender, message, bot_id, app_id):
+    return "You probably misssed it"
+    '''
     usage = "usage: !train <trainsystem> <station>\n\
             \t<trainsystem> Caltrain: CT, Bart: BA\n\
             \t<station> Stop code for station"
@@ -28,7 +30,5 @@ def train_handler(sender, message, bot_id, app_id):
     # r = requests.get(http://api.511.org/transit/StopMonitoring?api_key={your-key}&agency=)
     
     return None
-
-if __name__ == '__main__':
-    train_handler("!train BA 23")
+    '''
 

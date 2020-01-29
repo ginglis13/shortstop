@@ -20,6 +20,7 @@ from modules.party import party_handler
 from modules.sign_in import sign_in_handler
 from modules.usage import usage_handler
 from modules.weather import weather_handler
+from modules.train import train_handler
 
 # Globs
 app = Flask(__name__)
@@ -44,7 +45,8 @@ def call_handler(sender, message, bot_id, app_id):
         '!party': party_handler,
         '!roseceremony': bachelor_handler,
         '!usage': usage_handler,
-        '!weather': weather_handler
+        '!weather': weather_handler,
+        '!train': train_handler
     }
 
     # Get the function from handlers dictionary, add message as argument, return None on KeyError
