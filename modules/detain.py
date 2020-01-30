@@ -1,3 +1,4 @@
+import json
 def detain(sender, message, bot_id, app_id):
     """Detain a user"""
     usage = "Detain a user.\n\
@@ -9,50 +10,58 @@ def detain(sender, message, bot_id, app_id):
 
     message = message.strip().split()
     if len(message) > 1:
-        if message.split(' ')[1] == 'list':
+        if message[1] == 'list':
             return detainList()
-        writeDetain(sender)
+        writeDetain(message[1:])
         return "{} has been detained.".format(' '.join(message[1:]))
     else:
-        return "{} has been detained {} times".format(' '.join(message[1:],getN(sender))
+        return "{} has been detained {} times".format(sender,getN(sender))
     return None
 
 def getN(user):
-    with open('detainHistory.txt') as f:
-		for line in f:
-			line.split(' ')[:2] == user.split(' '):
-                return line.split(' ')[2]
+    user = ''.join(user)
+    with open('detainHistory.json', 'r') as f:
+        history = json.load(f)
+    if user in history:
+        return history[user]
     return 0
 
 def writeDetain(user):
-	with open('detainHistory.txt') as f:
-        history = []
-		for line in f:
-			history.append(line)
-    
-    #Can do this more pythonically. List comp?
-    #L
-    for i in range(len(history)):
-        if user.split(' ')[:2] == history[i].split(' ')[:2]:
-            history[i] = history[i][:-1] + int(history[i][-1]) + 1
-            break
+    user = ' '.join(user)
+    with open('detainHistory.json', 'r') as f:
+        history = json.load(f)
+
+    if user in history:
+        history[user] = int(history[user]) + 1
     else:
-        history.append(user+' 1')
+        history[user] = '1'
 
-    with open('detainHistory.text',"w") as f:
-        for line in history:
-            f.write(line)
+    with open('detainHistory.json', 'w') as f:
+        json.dump(history, f)
+    
+    
 
- def detainList():
-    history = []
-    with open('detainHistory.txt') as f:
-        for line in f:
-            history.append(line)
-    return '\n '.join(history)
+def detainList():
+    historyStr = []
+    with open('detainHistory.json', 'r') as f:
+        history = json.load(f)
+
+    for name in history:
+        historyStr.append(name+' '+str(history[name]))
+    
+    return '\n'.join(historyStr)
 
 
+if __name__ == '__main__':
+    print('Test detain')
+    print(detain('Joseph Gripenstraw','!detain Dierre Upshaw',' ',' '))
+    print(detain('Joseph Gripenstraw','!detain Dierre',' ',' '))
 
-detain('Joseph Gripenstraw','!detain')
+    print('Test self count')
+    print(detain('Dierre Upshaw','!detain',' ',''))
+    print ('Test list')
+    print(detain('Joseph Gripenstraw','!detain list',' ',''))
+
 
     
 
