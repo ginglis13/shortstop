@@ -80,6 +80,8 @@ def shortstop():
 def reply(msg):
     """Reply to a message in the chat"""
     url = 'https://api.groupme.com/v3/bots/post'
+    if msg == None or msg == "None":  #not sure when the cast to str happens.
+        return None
     data = {
         'bot_id'		: bot_id,
         'text'			: msg
