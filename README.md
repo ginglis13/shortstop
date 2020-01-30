@@ -9,7 +9,9 @@
 
 - !attendance - get the class sign in URL
 - !calendar \<timeframe\> - See what Dierre has scheduled for the next <timeframe> (day, week)
+- !detain - see how many times you have been detained
 - !detain \<user\> - detain a user
+- !detain list - see detain history
 - !dierre - get a dierre picture and a quote :heart:
 - !door \<location\> - ask to be let in
 - !party \<building\> \<room\> \<timewindow\> - Let the group know there's a party at your place
