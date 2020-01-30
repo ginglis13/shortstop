@@ -16,7 +16,7 @@
 - !door \<location\> - ask to be let in
 - !party \<building\> \<room\> \<timewindow\> - Let the group know there's a party at your place
 - !roseceremony - retrieve the list of current bachelor contestants
-- !train \<transitsystem\> \<station\> - Lets you know when the next train/bus for <transitsystem> at <station> is coming
+- !train [TODO] \<transitsystem\> \<station\> - Lets you know when the next train/bus for <transitsystem> at <station> is coming
 - !weather \<location\> - Lets you know the weather at redwood, att or menlo
 
 - shortstop keeps track of the calendar and will wish you a happy birthday!
@@ -32,6 +32,8 @@
 [Google Calendar API](https://developers.google.com/calendar/v3/reference)
 
 ### TODO
+
+Train/Commute Module
 
 Restructure app into separate modules, use `reload` function
 Reference Bobbit module loading: https://github.com/pbui/bobbit-ng/blob/master/bobbit.py

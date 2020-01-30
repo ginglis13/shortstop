@@ -15,7 +15,7 @@ DEFAULT_ZIPCODE = 94025
 
 with open(".secret", "r") as f:
     secrets = json.loads(f.read())
-    OWN_APPID = secrets['weather']
+    OWM_APPID = secrets['weather']
 
  
 def weather_handler(sender, message, bot_id, app_id):
