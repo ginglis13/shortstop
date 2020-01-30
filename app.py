@@ -20,6 +20,7 @@ from modules.party import party_handler
 from modules.sign_in import sign_in_handler
 from modules.usage import usage_handler
 from modules.weather import weather_handler
+from modules.ndcalifornia import instagram_handler
 
 # Globs
 app = Flask(__name__)
@@ -40,9 +41,11 @@ def call_handler(sender, message, bot_id, app_id):
         '!calendar': daily_cal_handler,
         '!detain': detain_handler,
         '!dierre': dierre_pic_handler,
+        '!instagram': instagram_handler,
+        '!ndcalifornia': instagram_handler,
+        '!roseceremony': bachelor_handler,
         '!door': door_handler,
         '!party': party_handler,
-        '!roseceremony': bachelor_handler,
         '!usage': usage_handler,
         '!weather': weather_handler
     }
