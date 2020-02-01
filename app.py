@@ -20,7 +20,7 @@ from modules.party import party_handler
 from modules.sign_in import sign_in_handler
 from modules.usage import usage_handler
 from modules.weather import weather_handler
-from modules.penny import penny_handler
+from modules.penny import penny_pic_handler
 
 # Globs
 app = Flask(__name__)
@@ -45,8 +45,8 @@ def call_handler(sender, message, bot_id, app_id):
         '!party': party_handler,
         '!roseceremony': bachelor_handler,
         '!usage': usage_handler,
-        '!weather': weather_handler
-        '!penny': penny_handler
+        '!weather': weather_handler,
+        '!penny': penny_pic_handler
     }
 
     # Get the function from handlers dictionary, add message as argument, return None on KeyError
@@ -97,4 +97,5 @@ def sender_is_bot(message):
 
 
 if __name__ == '__main__':
-    app.run(host='167.172.204.173')
+    # Run on raspi's local ip addr
+    app.run(host='10.0.0.225') 
