@@ -15,7 +15,7 @@ def dare_handler(sender, message, bot_id, app_id):
 
 def tehics_dares():
 	dares = []
-	#with open('/Users/brennen/School/Junior Year/shortstop/dares.txt') as f:
+	#with open('/Users/brennen/School/Junior Year/shortstoploc/dares.txt') as f:
     with open('dares.txt') as f:
 		for line in f:
 			dares.append(line.strip())
