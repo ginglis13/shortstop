@@ -22,7 +22,7 @@ from modules.usage import usage_handler
 from modules.weather import weather_handler
 from modules.penny import penny_pic_handler
 from modules.tethics_dare import dare_handler
-
+from modules.cohort_quotes.py import  cohort_quote_handler
 # Globs
 app = Flask(__name__)
 
@@ -49,6 +49,7 @@ def call_handler(sender, message, bot_id, app_id):
         '!weather': weather_handler,
         '!penny': penny_pic_handler,
         '!dare': dare_handler
+        '!quote': cohort_quote_handler
     }
 
     # Get the function from handlers dictionary, add message as argument, return None on KeyError
