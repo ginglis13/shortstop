@@ -21,6 +21,7 @@ from modules.sign_in import sign_in_handler
 from modules.usage import usage_handler
 from modules.weather import weather_handler
 from modules.penny import penny_pic_handler
+from modules.tethics_dare import dare_handler
 
 # Globs
 app = Flask(__name__)
@@ -46,7 +47,8 @@ def call_handler(sender, message, bot_id, app_id):
         '!roseceremony': bachelor_handler,
         '!usage': usage_handler,
         '!weather': weather_handler,
-        '!penny': penny_pic_handler
+        '!penny': penny_pic_handler,
+        '!dare': dare_handler
     }
 
     # Get the function from handlers dictionary, add message as argument, return None on KeyError
