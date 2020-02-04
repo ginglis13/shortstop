@@ -27,7 +27,7 @@ def upload_image_to_groupme(imgURL, app_id):
 		return imageurl
 
 def dierre_pic_handler(sender, message, bot_id, app_id):
-    with open('dierre_pics.txt') as f:
+    with open('txt/dierre_pics.txt') as f:
         images = []
         for line in f:
             images.append(line.strip())
@@ -36,7 +36,7 @@ def dierre_pic_handler(sender, message, bot_id, app_id):
 
 def dierre_quote():
 	quotes = []
-	with open('dierre_quotes.txt') as f:
+	with open('txt/dierre_quotes.txt') as f:
 		for line in f:
 			quotes.append(line.strip())
 	return quotes[random.randrange(len(quotes))]

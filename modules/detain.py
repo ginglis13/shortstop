@@ -21,7 +21,7 @@ def detain_handler(sender, message, bot_id, app_id):
 
 def getN(user):
     user = ''.join(user)
-    with open('detainHistory.json', 'r') as f:
+    with open('txt/detainHistory.json', 'r') as f:
         history = json.load(f)
     if user in history:
         return history[user]
@@ -29,7 +29,7 @@ def getN(user):
 
 def writeDetain(user):
     user = ' '.join(user)
-    with open('detainHistory.json', 'r') as f:
+    with open('txt/detainHistory.json', 'r') as f:
         history = json.load(f)
 
     if user in history:
@@ -37,14 +37,14 @@ def writeDetain(user):
     else:
         history[user] = '1'
 
-    with open('detainHistory.json', 'w') as f:
+    with open('txt/detainHistory.json', 'w') as f:
         json.dump(history, f)
     
     
 
 def detainList():
     historyStr = []
-    with open('detainHistory.json', 'r') as f:
+    with open('txt/detainHistory.json', 'r') as f:
         history = json.load(f)
 
     for name in history:

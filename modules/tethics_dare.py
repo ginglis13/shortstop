@@ -16,7 +16,7 @@ def dare_handler(sender, message, bot_id, app_id):
 
 def random_classmate():
     roster = []
-    with open('tethics_roster.txt') as f:
+    with open('txt/tethics_roster.txt') as f:
         for line in f:
             roster.append(line.strip())
     return roster[random.randrange(len(roster))]
@@ -24,7 +24,7 @@ def random_classmate():
 
 def tehics_dares():
     dares = []
-    with open('dares.txt') as f:
+    with open('txt/dares.txt') as f:
         for line in f:
             dares.append(line.strip())
     return dares[random.randrange(len(dares))]

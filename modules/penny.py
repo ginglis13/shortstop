@@ -27,7 +27,7 @@ def upload_image_to_groupme(imgURL, app_id):
 		return imageurl
 
 def penny_pic_handler(sender, message, bot_id, app_id):
-    with open('penny.txt') as f:
+    with open('txt/penny.txt') as f:
         images = []
         for line in f:
             images.append(line.strip())
