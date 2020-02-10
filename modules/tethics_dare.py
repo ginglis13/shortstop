@@ -1,6 +1,6 @@
 import json
 import random
-
+'''All dares subject to change '''
 dares = []
 dares[0:19]     = (20) * ["10 second chug"]
 dares[20:24]    = (5)  * ["Show your feet"]
