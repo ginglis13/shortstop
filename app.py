@@ -100,4 +100,4 @@ def sender_is_bot(message):
 
 if __name__ == '__main__':
     # Run on raspi's local ip addr
-    app.run(host='10.0.0.225') 
+    app.run(host='192.168.1.214') 
