@@ -59,7 +59,7 @@ def call_handler(sender, message, bot_id, app_id):
     return None
 
 
-@app.route('/', methods=['POST'])
+@app.route('/botjawn', methods=['POST'])
 def shortstop():
     """Handle requests from GroupMe"""
     sender = request.get_json()['name']
@@ -77,6 +77,7 @@ def shortstop():
     elif message and message == message.upper() and len(message) > 0 and re.search('[A-Z]', message):
         reply(noise_complaint_handler(sender, message, bot_id, app_id))
 
+    print('INCOMING REQUEST FROM {}'.format(request.remote_addr))
     return "ok", 200
 
 
