@@ -14,6 +14,8 @@
 - !detain list - see detain history
 - !dierre - get a dierre picture and a quote :heart:
 - !door \<location\> - ask to be let in
+- !quote - get random cohort quote
+- !quote add \<quote\> - add quote
 - !party \<building\> \<room\> \<timewindow\> - Let the group know there's a party at your place
 - !roseceremony - retrieve the list of current bachelor contestants
 - !train [TODO] \<transitsystem\> \<station\> - Lets you know when the next train/bus for <transitsystem> at <station> is coming
